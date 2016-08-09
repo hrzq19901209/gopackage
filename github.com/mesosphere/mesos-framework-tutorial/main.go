@@ -37,7 +37,7 @@ func main() {
 
 	exec := prepareExecutorInfo(uri, getExecutorCmd(*executorPath))
 
-	scheduler, err := NewExampleScheduler(exec, CPU_PER_TASK, MEM_PER_TASK)
+	scheduler, err := NewExampleScheduler(exec, CPUS_PER_TASK, MEM_PER_TASK)
 	if err != nil {
 		log.Fatalf("Failed to create scheduler with error: %v\n", err)
 		os.Exit(-2)
@@ -64,7 +64,7 @@ func main() {
 	}
 
 	if stat, err := driver.Run(); err != nil {
-		log.fatalf("framework stopped with status %s and error: %s\n", stat.String(), err.Error())
+		log.Fatalf("framework stopped with status %s and error: %s\n", stat.String(), err.Error())
 		os.Exit(-4)
 	}
 }
@@ -72,7 +72,7 @@ func main() {
 func prepareExecutorInfo(uri string, cmd string) *mesos.ExecutorInfo {
 	executorUris := []*mesos.CommandInfo_URI{
 		{
-			value:      &uri,
+			Value:      &uri,
 			Executable: proto.Bool(true),
 		},
 	}

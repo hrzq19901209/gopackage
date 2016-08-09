@@ -42,22 +42,22 @@ func (exec *exampleExecutor) LaunchTask(driver exec.ExecutorDriver, taskInfo *me
 	exec.tasksLaunched++
 	fmt.Println("Total tasks launched ", exec.tasksLaunched)
 
-	//	fileName, err := downloadImage(string(taskInfo.Data))
-	//	if err != nil {
-	//		fmt.Printf("Failed to download image with error: %v\n", err)
-	//		return
-	//	}
-	//	fmt.Printf("Download image: %v\n", fileName)
-	//
-	//	fmt.Printf("Processing image: %v\n", fileName)
-	//	outFile, err := procImage(fileName)
-	//	if err != nil {
-	//		fmt.Printf("Failed to process image with error: %v\n", err)
-	//		return
-	//	}
-	//
-	//	fmt.Printf("Uploading image: %v\n", outFile)
-	//
+	fileName, err := downloadImage(string(taskInfo.Data))
+	if err != nil {
+		fmt.Printf("Failed to download image with error: %v\n", err)
+		return
+	}
+	fmt.Printf("Download image: %v\n", fileName)
+
+	fmt.Printf("Processing image: %v\n", fileName)
+	outFile, err := procImage(fileName)
+	if err != nil {
+		fmt.Printf("Failed to process image with error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("Uploading image: %v\n", outFile)
+
 	fmt.Println("Finishing task", taskInfo.GetName())
 	finStatus := &mesos.TaskStatus{
 		TaskId: taskInfo.GetTaskId(),

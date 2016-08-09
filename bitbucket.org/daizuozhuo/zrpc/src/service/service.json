@@ -1,0 +1,27 @@
+{
+  "rsync":{
+    "Name":"rsync",
+    "Args":["rsync", "-a", "$src", "$dest"],
+    "ArgsType":["", "", "INPUTFOLDER", "OUTPUTFOLDER"]
+  },
+  "e3dengine-sfm": {
+    "Name":"e3dengine-sfm",
+    "Args":["python", "/mnt/gluster/xms/e3dengine.py", "--sfm", "$input", "$runtime"],
+    "ArgsType":["", "", "", "INPUTFOLDER", "OUTPUTFOLDER"]
+  },
+  "e3dengine-dense": {
+    "Name":"e3dengine-dense",
+    "Args":["python", "/mnt/gluster/xms/e3dengine.py", "--dense", "$input", "$runtime"],
+    "ArgsType":["", "", "", "INPUTFOLDER", "OUTPUTFOLDER"]
+  },
+  "e3dengine-mesh": {
+    "Name":"e3dengine-mesh",
+    "Args":["python", "/mnt/gluster/xms/e3dengine.py", "--mesh", "$input", "$runtime"],
+    "ArgsType":["", "", "", "INPUTFOLDER", "OUTPUTFOLDER"]
+  },
+  "e3dengine-tex": {
+    "Name":"e3dengine-tex",
+    "Args":["python", "/mnt/gluster/xms/e3dengine.py", "--tex", "$input", "$runtime"],
+    "ArgsType":["", "", "", "INPUTFOLDER", "OUTPUTFOLDER"]
+  }
+}

@@ -6,7 +6,7 @@ import (
 )
 
 func ServeExecutorArtifact(address string, port int, filePath string) string {
-	fileToServe := GetDefaultMappings([]string{filePath})
+	filesToServe := GetDefaultMappings([]string{filePath})
 
 	httpPath := filesToServe[0].HttpPath
 	serverURI := fmt.Sprintf("%s:%d", address, port)

@@ -1,0 +1,10 @@
+{
+  "StaticDir": "/home/zdai/goproj/src/bitbucket.org/daizuozhuo/zrpc/public",
+  "Name": "localhost",
+  "IP": "127.0.0.1",
+  "Port": "4204",
+  "Timeout": "60",
+  "Cluster": "localtest",
+  "MasterIP": "127.0.0.1"
+}
+

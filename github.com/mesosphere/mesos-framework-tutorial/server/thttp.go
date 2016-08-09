@@ -17,7 +17,7 @@ type HttpPathMapping struct {
 
 func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("image")
-	fileName := r.FormVaule("name")
+	fileName := r.FormValue("name")
 
 	if err != nil {
 		log.Infof("Failed to handle upload request with error: %v\n", err)
@@ -89,6 +89,6 @@ func GetDefaultMappings(filePaths []string) []HttpPathMapping {
 
 func StartHttpServer(address string, filesToServe []HttpPathMapping) {
 	registerDownloadHandlers(filesToServe)
-	reisterUploadHandler()
+	registerUploadHandler()
 	go http.ListenAndServe(address, nil)
 }
